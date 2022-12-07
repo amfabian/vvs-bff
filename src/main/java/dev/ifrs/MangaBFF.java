@@ -27,7 +27,7 @@ public class MangaBFF {
 
     @POST
     @Path("/create")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Manga createBFF(@FormParam("mal_id") String mal_id,
                             @FormParam("image_url") String image_url,
@@ -43,7 +43,7 @@ public class MangaBFF {
 
     @GET
     @Path("/list")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<Manga> listBFF(){
         return mangabc.list();
@@ -51,7 +51,7 @@ public class MangaBFF {
 
     @GET
     @Path("/list/{id}")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Manga getMangaBFF(@PathParam("id") Long id){
         return mangabc.getManga(id);
@@ -59,14 +59,14 @@ public class MangaBFF {
 
     @DELETE
     @Path("/delete/{id}")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     public void delete(@PathParam("id") Long id){
         mangabc.delete(id);
     }
 
     @PUT
     @Path("/update/{id}")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Manga update(@PathParam("id") Long id, @FormParam("login") String login,
                             @FormParam("mal_id") String mal_id){

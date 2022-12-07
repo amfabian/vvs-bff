@@ -49,7 +49,7 @@ public class UsuarioBFF {
 
     @POST
     @Path("/create")
-    @RolesAllowed({"Admin", "User"})
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public Usuario createBFF(@FormParam("login") String login,
                                 @FormParam("password") String password,
@@ -59,7 +59,7 @@ public class UsuarioBFF {
 
     @GET
     @Path("/list")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<Usuario> listBFF(){
       
@@ -68,7 +68,7 @@ public class UsuarioBFF {
 
     @GET
     @Path("/list/{id}")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Usuario getUserBFF(@PathParam("id") Long id){
         return usuariobc.getUser(id);
@@ -89,7 +89,7 @@ public class UsuarioBFF {
                     LOGGER.info("usuario admin: "+user.getLogin());
                 return loginBC.getADMIN(user.getLogin(), user.getEmail());
                 } else {
-                    LOGGER.info("usuario admin: "+user.getLogin());
+                    LOGGER.info("usuario nao admin: "+user.getLogin());
                     return loginBC.getJWT(user.getLogin(), user.getEmail());
             }
             }

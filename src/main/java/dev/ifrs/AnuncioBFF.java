@@ -28,7 +28,7 @@ public class AnuncioBFF {
 
     @POST
     @Path("/create")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Anuncio createBFF(@FormParam ("manga_id") Long manga_id,
                                 @FormParam("user_id") Long user_id,
@@ -38,7 +38,7 @@ public class AnuncioBFF {
 
     @GET
     @Path("/list")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<Anuncio> listBFF(){
         return anunciobc.list();
@@ -46,21 +46,21 @@ public class AnuncioBFF {
 
     @GET
     @Path("/list/{id}")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Anuncio getAnuncioBFF(@PathParam("id") Long id){
         return anunciobc.getAnuncio(id);
     }
     @DELETE
     @Path("/delete/{id}")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     public void delete(@PathParam("id") Long id){
         anunciobc.delete(id);
     }
 
     @PUT
     @Path("/update/{id}")
-    @RolesAllowed({"Admin", "User"})
+    //@RolesAllowed({"Admin", "User"})
     @Produces(MediaType.APPLICATION_JSON)
     public Anuncio update(@PathParam("id") Long id, 
                             @FormParam("desc") String desc){
